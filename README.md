@@ -1,4 +1,4 @@
-# Welcome to Airline management backend system
+# Airline management backend system
 
 ## Project Setup
 - clone the project on your local 
@@ -17,3 +17,4 @@
         },
     }
     ```
+- Once you've added your db config as listed above, go to the src folder from your terminal and execute `npx sequelize db:create`
