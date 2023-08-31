@@ -33,11 +33,17 @@ class CityRepository {
     // update city function
   async updateCity(cityID, data) {
     // data will be a object like: {name: "Prayagraj"}
-      const city = await City.update(data, {
-        where: {
-          id: cityID
-        }
-      })
+      // const city = await City.update(data, {
+      //   where: {
+      //     id: cityID
+      //   },
+      //   returning: true,
+      //   plain: true
+      // })
+      // the above code will return an array like: [1] in mySQL and will return an object like: {name: "Prayagraj"} in postgres, for similar output we have changed the code to: 
+      const city = await City.findByPk(cityID);
+      city.name = data.name;
+      await city.save();
       return city;
   }
 }
