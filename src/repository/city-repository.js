@@ -47,6 +47,7 @@ class CityRepository {
     await city.save();
     return city;
   }
+  // get all cities function
   async getAllCities(filter) {
     // filter can be empty
     try {
@@ -55,12 +56,22 @@ class CityRepository {
           where: {
             name: {
               [Op.startsWith]: filter.name,
-            }
+            },
           },
         });
         return cities;
       }
       const cities = await City.findAll();
+      return cities;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
+  // bulk create cities function
+  async bulkCreateCities(data) {
+    try {
+      const cities = await City.bulkCreate(data);
       return cities;
     } catch (error) {
       console.log("Something went wrong in the repository layer");

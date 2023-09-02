@@ -90,6 +90,27 @@ const getAll = async (req, res) => {
     return res.status(200).json({
       data: cities,
       success: true,
+      message: "Successfully added all the cities",
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      data: {},
+      success: false,
+      message: "Error in retrieving a city",
+      err: error,
+    });
+  }
+};
+
+// PUT -> /city
+const bulkCreate = async (req, res) => {
+  try {
+    const cities = await cityService.bulkCreateCities(req.body);
+    return res.status(200).json({
+      data: cities,
+      success: true,
       message: "Successfully fetched all cities",
       err: {},
     });
@@ -110,4 +131,5 @@ module.exports = {
   get,
   update,
   getAll,
+  bulkCreate,
 };
