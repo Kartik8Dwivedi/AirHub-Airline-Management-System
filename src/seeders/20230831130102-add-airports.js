@@ -12,6 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+   // to seed this, run: npx sequelize-cli db:seed:all
     await queryInterface.bulkInsert('Airports', [
       {
         name: 'Kempegowda International Airport',
