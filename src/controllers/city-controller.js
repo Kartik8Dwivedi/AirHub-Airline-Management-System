@@ -125,6 +125,27 @@ const bulkCreate = async (req, res) => {
   }
 };
 
+// GET -> /airports
+const getAirports = async (req, res) => {
+  try {
+    const airports = await cityService.getAirports(req.params);
+    return res.status(200).json({
+      data: airports,
+      success: true,
+      message: "Successfully fetched all airports",
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      data: {},
+      success: false,
+      message: "Error in retrieving a city",
+      err: error,
+    });
+  }
+};
+
 module.exports = {
   create,
   destroy,
@@ -132,4 +153,5 @@ module.exports = {
   update,
   getAll,
   bulkCreate,
+  getAirports,
 };

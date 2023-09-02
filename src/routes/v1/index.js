@@ -9,5 +9,6 @@ router.get("/city/:id", CityController.get);
 router.get("/city", CityController.getAll);
 router.patch("/city/:id", CityController.update);
 router.put("/city", CityController.bulkCreate);
+router.get("/airportsInCity/:id", CityController.getAirports);
 
 module.exports = router;
