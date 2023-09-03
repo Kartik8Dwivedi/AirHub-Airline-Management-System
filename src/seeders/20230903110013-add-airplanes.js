@@ -12,37 +12,30 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    // to seed this, run: npx sequelize-cli db:seed:all
     // await queryInterface.bulkInsert(
-    //   "Airports",
+    //   "Airplanes",
     //   [
     //     {
-    //       name: "Kempegowda International Airport",
-    //       cityId: 3,
+    //       modelNumber: "Boeing 737",
+    //       capacity: 160,
     //       createdAt: new Date(),
     //       updatedAt: new Date(),
     //     },
     //     {
-    //       name: "Mysuru Airport",
-    //       cityId: 3,
+    //       modelNumber: "Airbus A320",
+    //       capacity: 350,
     //       createdAt: new Date(),
     //       updatedAt: new Date(),
     //     },
     //     {
-    //       name: "Mengaluru International Airport",
-    //       cityId: 3,
+    //       modelNumber: "Boeing 777",
+    //       capacity: 240,
     //       createdAt: new Date(),
     //       updatedAt: new Date(),
     //     },
     //     {
-    //       name: "Indira Gandhi International Airport",
-    //       cityId: 4,
-    //       createdAt: new Date(),
-    //       updatedAt: new Date(),
-    //     },
-    //     {
-    //       name: "Chaudhary Charan Singh International Airport",
-    //       cityId: 5,
+    //       modelNumber: "Airbus A380",
+    //       capacity: 392,
     //       createdAt: new Date(),
     //       updatedAt: new Date(),
     //     },
