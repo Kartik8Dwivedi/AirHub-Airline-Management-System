@@ -20,6 +20,15 @@ const setupAndStartserver = async () => {
       await db.sequelize.sync({ alter: true });
       console.log("Database Synced");
     }
+    /*
+            const AirportRepository = require('./repository/airport-repository')
+            const repo = new AirportRepository();
+            const data = await repo.createAirport({
+              name: "Chaudhary Charan Singh International Airport",
+              cityId: 3
+            })
+            console.log(data)
+    */
   });
 };
 setupAndStartserver();
