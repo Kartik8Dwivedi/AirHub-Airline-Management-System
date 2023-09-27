@@ -13,10 +13,10 @@ router.patch("/city/:id", CityController.update);
 router.put("/city", CityController.bulkCreate);
 router.get("/airportsInCity/:id", CityController.getAirports);
 
-router.post("/airport", AirportController.createAirport);
-router.delete("/airport/:id", AirportController.deleteAirport);
-router.get("/airport/:id", AirportController.getAirport);
-router.patch("/airport/:id", AirportController.updateAirport);
+router.post("/airport", AirportController.create);
+// router.delete("/airport/:id", AirportController.deleteAirport);
+// router.get("/airport/:id", AirportController.getAirport);
+// router.patch("/airport/:id", AirportController.updateAirport);
 
 router.post("/flights", FlightController.create);
 router.get("/flights", FlightController.getAll);
