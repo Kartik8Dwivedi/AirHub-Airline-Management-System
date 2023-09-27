@@ -35,7 +35,8 @@ class AirportRepository {
     async updateAirport(airportId, data){
         try{
             const airport = await Airport.findByPk(airportId);
-            airport.name = data.name;
+            if(data.name) airport.name = data.name;
+            if(data.cityId) airport.cityId = data.cityId;
             await airport.save();
             return airport;
         }catch(error){
