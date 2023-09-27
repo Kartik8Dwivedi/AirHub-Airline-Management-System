@@ -3,7 +3,16 @@ const {FlightService} = require('../services/index');
 const flightService = new FlightService();  
 const create = async (req,res) => {
     try {
-        const flight = await flightService.createFlight(req.body);
+        let flightRequestData = {
+            flightNumber: req.body.flightNumber,
+            airplaneId: req.body.airplaneId,
+            departureAirportId: req.body.departureAirportId,
+            arrivalAirportId: req.body.arrivalAirportId,
+            departureTime: req.body.departureTime,
+            arrivalTime: req.body.arrivalTime,
+            price: req.body.price,
+        }
+        const flight = await flightService.createFlight(flightRequestData);
         return res.status(201).json({
             data: flight,
             success: true,
