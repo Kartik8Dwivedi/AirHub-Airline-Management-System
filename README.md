@@ -26,6 +26,8 @@
     `npx sequelize db:create`
     and then execute 
     `npx sequelize db:migrate`
+
+#### NOTE: In other microservice also we have the similar kind of pattern, so the above steps will work accurately for other microservices as well.
   
 
 ## DB Design
