@@ -1,4 +1,9 @@
 # Airline management backend system
+- This project is based on Microservice architecture.
+- This project follows the repository pattern, whereby, we communicate the models through the repository layer, and all of our business logic is primarily stored in the service layer.
+- This backend system has specific cron-jobs for different usecases, like reminder service, update mails, etc.
+- We have also integrated the message-queues design pattern to scale up the backend system. We have used rabbitMQ for setting up the message queues (previously it was build on kafka, but we have refactored the code for now).
+- We will soon deploy this backend system on AWS as well and will containerize the microservices as well for orchestration.
 
 ## Project Setup
 - clone the project on your local 
@@ -65,4 +70,5 @@
 ## Microservice repositories
  - Auth microservice: https://github.com/Kartik8Dwivedi/Auth-Microservice
  - Booking microservice: https://github.com/Kartik8Dwivedi/Booking-Microservice
+ - Reminder microservice: https://github.com/Kartik8Dwivedi/Notification-Microservice
  - There are few more private repositories for reminder service, logging, aws microservice, etc which will be made public soon!!
