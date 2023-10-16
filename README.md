@@ -1,9 +1,27 @@
-# Airline management backend system
+# AirHub Backend System
 - This project is based on Microservice architecture.
 - This project follows the repository pattern, whereby, we communicate the models through the repository layer, and all of our business logic is primarily stored in the service layer.
 - This backend system has specific cron-jobs for different usecases, like reminder service, update mails, etc.
 - We have also integrated the message-queues design pattern to scale up the backend system. We have used rabbitMQ for setting up the message queues (previously it was build on kafka, but we have refactored the code for now).
-- We will soon deploy this backend system on AWS as well and will containerize the microservices as well for orchestration.
+- The microservices follow the REST Api intercommunication between each other using axios.
+- This project was earlier deployed on AWS EC2 Ubuntu instance along with automatic load balancers, which is currently terminated; the containerized version of this project will be available soon!
+- All the microservices which were needed to build this project are listed at the bottom of this documentation.
+- Refer to the Design doc for more explanation regarding the backend complexities and functionalities.
+
+## Microservice repositories
+ - ### Ticketing Microservice
+      - For booking the flight tickets and message queues
+      - [https://github.com/Kartik8Dwivedi/Booking-Microservice](https://github.com/Kartik8Dwivedi/Ticketing-Microservice)
+ - ### Mailing and Third party Microservice
+      - For setting up the cron jobs and message queues
+      - [https://github.com/Kartik8Dwivedi/Notification-Microservice](https://github.com/Kartik8Dwivedi/Thirt-Party-Microservice)
+ - ### Authentication and Authorization microservice
+      - For authentication logic
+      - [https://github.com/Kartik8Dwivedi/Auth-Microservice](https://github.com/Kartik8Dwivedi/Authentication-and-Authorization-microservice)
+ - ### Api Endpoint Gateway microservice
+      - For api endpoint switch to particular microservice; the role of this microservice in majorly for deployment
+      - https://github.com/Kartik8Dwivedi/API-Endpoint-Gateway
+ - This backend system was active on AWS EC2 instance earlier, currently it is terminated. The containerized version of this system will be committed soon!
 
 ## Project Setup
 - clone the project on your local 
@@ -30,7 +48,7 @@
 #### NOTE: In other microservice also we have the similar kind of pattern, so the above steps will work accurately for other microservices as well.
   
 
-## DB Design
+## DB Design for this microservice
  - Airplane Table
    - id
    - model_number
@@ -52,7 +70,7 @@
  - City Table
    - id
    - name
-## Associations
+## Associations for this microservice
  - Airplane -> Flights (One to Many relationship)
  - City -> Airport (One to Many relationship)
  - Airport -> Flights (One to Many relationship )
@@ -63,14 +81,8 @@
       
     ### Refer to the design doc which is attached above in the code files for more clear understanding of the system design of this project.
 
-## Tables
+## Tables for this microservice
 
 - City -> id, name, created_at, updated_at
 - Airport -> id, name, address, city_id, created_at, updated_at
 - Relationship -> City has many airports and Airport belngs to a city (one to many relationship) 
-
-## Microservice repositories
- - Auth microservice: https://github.com/Kartik8Dwivedi/Auth-Microservice
- - Booking microservice: https://github.com/Kartik8Dwivedi/Booking-Microservice
- - Reminder microservice: https://github.com/Kartik8Dwivedi/Notification-Microservice
- - There are few more private repositories for reminder service, logging, aws microservice, etc which will be made public soon!!
